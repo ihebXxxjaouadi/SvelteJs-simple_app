@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "..\\..\\infoContainer.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\r\n\timport { fade } from \"svelte/transition\";\r\n\timport { createEventDispatcher } from \"svelte\";\r\n\r\n\tconst Dispatch = createEventDispatcher();\r\n\t\r\n\texport let name, age, country, job, skills, experience, salary;\r\n\r\n\tlet showEmployeInfo = true ;\r\n\tlet toggleShowEmployeInfo = () => {\r\n\t\tshowEmployeInfo = !showEmployeInfo ;\r\n\t}\r\n\r\n\tlet addToSalary = () => {\r\n\t\tsalary += 100;\r\n\t}\r\n\r\n\tlet reduceSalary = () => {\r\n\t\tsalary -= 100;\r\n\t}\r\n\r\n\tlet removeEmployee = () => {\r\n\t\tDispatch('removeemploye', name)\r\n\t}\r\n\t\r\n\r\n\r\n</script>\r\n\r\n<main>\r\n\t<div class='col-6 col-md-3 mx-auto m-4 card border'>\r\n\t\t<div class=\"blockContainer card-block px-2 pt_-2\">\r\n\t\t\t<h5 class=\"text-success font-weight-bold d-inline\"> { name } </h5>\r\n\t\t\t<button class=\"btn btn-success\" on:click={toggleShowEmployeInfo}>{ showEmployeInfo ? '-' : '+' }</button>\r\n\t\t\t<button class=\"btn btn-danger \" on:click={removeEmployee}>x</button>\r\n\t\t\t{#if showEmployeInfo }\r\n\t\t\t\t<div class=\"card-block m-2\" transition:fade|> \r\n\t\t\t\t\t<span class=\"titleInfo text-primary font-weight-bold\">age: <span><span class=\"text-muted\"> { age }<span>\r\n\t\t\t\t\t<span class=\"text-primary d-block\">job: <span><span class=\"text-muted\">{ job }<span>\r\n\t\t\t\t\t<span class=\"text-primary d-block\">experience: <span><span class=\"text-muted d-inline\">{ experience } years<span>\r\n\t\t\t\t\t<span class=\"text-primary d-block\">salary: <span><span class=\"text-muted d-inline\">{salary} <span>\r\n\t\t\t\t\t<button class=\"btn btn-secondary btn-sm ml-1 rounded-0\" on:click={addToSalary} >+</button>\r\n\t\t\t\t\t<button class=\"btn btn-light btn-sm rounded-0\" on:click={reduceSalary} >-</button>\r\n\t\t\t\t\t<p class=\"text-danger text-right pt-4 m-0\">&copy; app made it by iheb</p>\r\n\t\t\t\t</div>\r\n\t\t\t{/if}\r\n\r\n\t\t</div>\r\n\t</div>\t\t\r\n</main>\r\n\r\n<style>\r\n.titleInfo {\r\n\tfont-size: 14px\r\n}\r\n\r\n</style>"
+  ],
+  "names": [],
+  "mappings": "AAoDA,UAAU,eAAC,CAAC,AACX,SAAS,CAAE,IAAI;AAChB,CAAC"
+}
